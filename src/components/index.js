@@ -39,7 +39,7 @@ export default class Main extends Component {
   };
 
   resetData = () => {
-    this.setState({ title: "", description: "" });
+    this.setState({ name: "", price: "", description: "" });
   };
 
   addDrink = () => {
