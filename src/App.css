@@ -92,7 +92,6 @@
 
 .todo-list-container ul li {
   height: 60px;
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
