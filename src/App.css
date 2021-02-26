@@ -1,38 +1,236 @@
-.App {
-  text-align: center;
+.font12 {
+  font-size: 12px;
+}
+.font14 {
+  font-size: 14px;
+}
+.font20 {
+  font-size: 20px;
+}
+.line-through {
+  text-decoration: line-through;
+}
+.margin-left {
+  margin-left: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* todo related styling */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todo-wrapper {
+  background: linear-gradient(135deg, #b181ac 0%, #745c97 100%);
+  width: 750px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px -8px rgba(0, 0, 0, 0.35);
+  margin-top: 10%;
+  margin-bottom: 2%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-filters {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: 60px;
+  width: 100%;
+  max-width: 750px;
+}
+.todo-filters button {
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  border: 0 none;
+  background-color: #413f6d62;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 10px;
+  transition: all 0.2s ease;
+  outline: 0;
+}
+
+.add-button {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+.add-button button {
+  font-size: 20px;
+  background-color: #f5b0cb;
+  color: #6e695e;
+  outline: 0;
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 50px;
+}
+
+.logout-button {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.logout-button button {
+  font-size: 20px;
+  background-color: #f5b0cb;
+  cursor: pointer;
+  color: #ffffff;
+  outline: 0;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 50px;
+}
+
+.todo-list-container {
+  max-height: 600px;
+  overflow: auto;
+}
+.todo-list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.todo-list-container ul li {
+  height: 60px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+.todo-list-container ul li button {
+  height: 30px;
+  border-radius: 10px;
+  margin: 10px;
+  border: 0 none;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+.todo-list-container li div p {
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 250px;
+}
+.todo-list-container .remove-todo {
+  margin-left: auto;
+}
+.todo-list-container .remove-todo:hover {
+  cursor: pointer;
+}
+.todo-list-container ul li.noData {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.todo-filters .btn-active {
+  background-color: #b181ac;
+}
+.todo-text-container {
+  min-width: 245px;
+  cursor: pointer;
+}
+
+/* modal styling */
+.modal {
+  text-align: center;
+  z-index: 100;
+  background: white;
+  margin: auto;
+  width: 50vmin;
+  height: 52vmin;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+}
+
+.modal-details {
+  height: 25vmin;
+}
+
+.modal-auth {
+  position: relative;
+}
+.modal-closed {
+  display: none;
+}
+
+.modal-container {
+  background: linear-gradient(135deg, #b181ac 0%, #745c97 100%);
+  padding: 10px;
+  padding-bottom: 40px;
+}
+
+.open-button {
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: lightgreen;
   color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 21px;
 }
 
-.App-link {
-  color: #61dafb;
+.modal .input {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+  outline: none;
+  border-radius: 5px;
+}
+.modal .input::placeholder {
+  opacity: 1;
+  font-weight: bolder;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal .input:focus {
+  border: 2px solid #416074;
+}
+
+.modal-action-btn-container {
+  margin-top: 10px;
+}
+.modal .modal-action-button {
+  background-color: #f5b0cb;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 16px;
+  outline: 0;
+  margin-top: 5%;
+}
+
+.modal .disable {
+  background-color: gray;
+}
+
+.modal .modal-action-button:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.modal .disable:hover {
+  background-color: gray;
+  color: white;
 }
